@@ -13,14 +13,33 @@ const themeSlice = createSlice({
   initialState,
   reducers: {
     toggleTheme: (state) => {
-      state.mode = state.mode === "light" ? "dark" : "light";
-      localStorage.setItem("theme", state.mode);
-      document.documentElement.setAttribute("data-theme", state.mode);
-    },
-    setTheme: (state, action) => {
-      state.mode = action.payload;
-      document.documentElement.setAttribute("data-theme", action.payload);
-    },
+  state.mode = state.mode === "light" ? "dark" : "light";
+
+  localStorage.setItem("theme", state.mode);
+
+  document.documentElement.setAttribute(
+    "data-theme",
+    state.mode
+  );
+
+  document.documentElement.classList.toggle(
+    "dark",
+    state.mode === "dark"
+  );
+},
+   setTheme: (state, action) => {
+  state.mode = action.payload;
+
+  document.documentElement.setAttribute(
+    "data-theme",
+    action.payload
+  );
+
+  document.documentElement.classList.toggle(
+    "dark",
+    action.payload === "dark"
+  );
+},
   },
 });
 
