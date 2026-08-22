@@ -1,4 +1,3 @@
-import { Navbar } from "@/components/navbar";
 import ComponentDemo from "../ComponentsDemo";
 import PropsTable from "@/components/Personal/PropsTable";
 import { Bell, Menu, Search, User } from "lucide-react";
